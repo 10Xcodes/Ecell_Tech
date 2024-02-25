@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Responsive Registration Form</title>
+<style>
+  body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color:whitesmoke;
+  }
+  
+  .container {
+    max-width: 500px;
+    margin: 10px auto;
+    background-color:wheat;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  .form-group {
+    margin-bottom: 20px;
+  }
+  
+  label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 5px;
+  }
+  
+  input[type="text"], input[type="email"], input[type="password"] {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+  }
+  
+  input[type="submit"] {
+    background-color: #29125f;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s ease;
+  }
+  
+  input[type="submit"]:hover {
+    background-color: hsl(239, 89%, 48%);
+  }
+  
+  @media only screen and (max-width: 600px) {
+    .container {
+      width: 90%;
+    }
+  }
+</style>
+</head>
+<body>
+
+<div class="container">
+  <h2>Register</h2>
+  <form id="registrationForm">
+    <div class="form-group">
+      <label for="username">Username:</label>
+      <input type="text" id="username" name="username" required placeholder="Username">
+    </div>
+    <div class="form-group">
+      <label for="email">Email:</label>
+      <input type="email" id="email" name="email" required placeholder="Email">
+    </div>
+    <label for="gender">Select your gender</label>
+    <div>
+        <input type="radio" id="male" name="gender" value="male" required>
+        <label for="male">Male</label>
+    </div>
+    <div>
+        <input type="radio" id="female" name="gender" value="female" required>
+        <label for="female">Female</label>
+    </div>
+    <br>
+    <div class="form-group">
+        <label for="branch">Enter your branch</label>
+        <select name="branch" id="branch" placeholder="Select">
+        <option value="Computer science and Engineering">Computer Science and Engineering</option>
+        <option value="Information Technology">Information Technology</option>
+        <option value="Electronics and Telecommunication Engineering">Electronics and  Telecommunication Engineering</option>
+        <option value="Electronics and electrical Engineering">Electronics and electrical Engineering</option>
+        <option value="Electrical Engineering">Electrical Engineering</option>
+        <option value="Mechanical Engineering">Mechanical Engineering</option>
+        <option value="Civil Engineering">Civil Engineering</option>
+        <option value="Metallurgy and Materials  Engineering">Metallurgy and Materials Engineering</option>
+        <option value="Production Engineering">Production Engineering</option>
+        </select></div>
+        <div class="form-group">
+            <label for="Registration Number">Registration Number</label>
+            <input type="number" id="Regd no" name="Registration Number" placeholder="Registration Number">
+    </div>
+    <div class="form-group">
+      <label for="password">Password:</label>
+      <input type="password" id="password" name="password" required placeholder="Password">
+    </div>
+    <div class="form-group">
+      <input type="submit" value="Register">
+    </div>
+  </form>
+  <p>Already have an account? <a href="login.html">Login</a></p>
+</div>
+
+<script>
+  document.getElementById("registrationForm").addEventListener("submit", function(event) {
+    event.preventDefault();
+    var formData = new FormData(this);
+    var formDataJson = {};
+    formData.forEach(function(value, key){
+      formDataJson[key] = value;
+    });
+    console.log(formDataJson);
+    // Here you can handle form submission via AJAX or other means
+  });
+</script>
+
+</body>
+</html>
